@@ -1,0 +1,26 @@
+nav {
+    display: flex;
+    
+    p {
+        margin: 0;
+        font-family: "JetBrains Mono", monospace;
+        font-size: .8rem;
+    }
+
+    div.main {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+        height: 40dvh;
+        margin: 0 auto;
+
+        div.controls {
+            display: flex;
+            width: 100%;
+        }
+
+        div {
+            width: 50%;
+        }
+    }
+}
