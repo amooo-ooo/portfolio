@@ -1,26 +1,113 @@
 nav {
     display: flex;
-    
+    padding: 2.2dvh;
+    height: 26dvh;
+
+    div.corner:last-child {
+        margin-left: auto;
+    }
+
     p {
         margin: 0;
         font-family: "JetBrains Mono", monospace;
         font-size: .8rem;
+        color: blue;
+        mix-blend-mode: difference;
     }
 
     div.main {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        
+
         display: flex;
         flex-direction: column;
-        width: 48%;
+        width: 64%;
         height: 40dvh;
         margin: 0 auto;
+        gap: 2.2dvh;
 
-        div.controls {
+        div.controls,
+        div.roles,
+        div.role {
             display: flex;
             width: 100%;
         }
 
+        div.controls {
+            text-transform: uppercase;
+        }
+
+        div.roles {
+            flex-direction: column;
+        }
+
+        div.role {
+            cursor: pointer;
+
+            div.title,
+            div.fade {
+                gap: .4rem;
+
+                p {
+                    width: 0;
+                    margin-left: auto;
+                }
+            }
+        }
+
+        div.fade {
+            width: 50%;
+            display: grid;
+
+            p {
+                background-color: blue;
+            }
+        }
+
+        div.title,
+        div.subtitle {
+            display: flex;
+
+            p {
+                width: 81%;
+                transition: width 90ms ease-in;
+            }
+        }
+
+        div.role:hover {
+            p {
+                background-color: blue;
+                color: #fff;
+            }
+
+            div.subtitle {
+                p {
+                    width: 94%;
+                }
+            }
+
+            div.fade {
+                p {
+                    margin-left: 0;
+                    width: 100%;
+                }
+            }
+
+            span.arrow {
+                color: blue;
+            }
+        }
+
         div {
             width: 50%;
+        }
+
+        span.arrow {
+            font-family: "JetBrains Mono", monospace;
+            margin-left: auto;
+            color: white;
         }
     }
 }

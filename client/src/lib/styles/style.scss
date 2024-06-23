@@ -1,0 +1,36 @@
+
+div.board {
+    width: 6vw;
+    height: 6dvh;
+    border-radius: .4rem;
+    border: 1px solid blue;
+    margin-left: auto;
+    display: flex;
+
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: blue;
+
+    p {
+        margin: auto;
+        text-transform: uppercase;
+    }
+}
+
+section {
+    margin-top: auto;
+    display: flex;
+    gap: .8rem;
+}
+
+div.content {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    color: blue;
+    display: flex;
+    width: 36vw;
+
+    p {
+        margin-top: auto;
+    }
+}
