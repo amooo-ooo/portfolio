@@ -1,10 +1,12 @@
 <script>
 	import '$lib/styles/style.scss';
+	import Cats from './Cats.svelte';
 	import Conway from './Conway.svelte';
 	let bored = false;
 </script>
 
 <section>
+	<Cats></Cats>
 	<div class="content">
 		<p>
 			Hi, I'm Amor Budiyanto. I'm a Year 13 High School student at Cashmere High School with passion

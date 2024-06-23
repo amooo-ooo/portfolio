@@ -2,7 +2,6 @@ nav {
     display: flex;
     padding: 2.2dvh;
     height: 26dvh;
-
     div.corner:last-child {
         margin-left: auto;
     }
@@ -44,8 +43,6 @@ nav {
         }
 
         div.role {
-            cursor: pointer;
-
             div.title,
             div.fade {
                 gap: .4rem;

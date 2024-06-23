@@ -23,6 +23,6 @@
 
 	<div class="subtitle">
 		<p style="transition-delay: {index * 10}ms;">[0{index}] {subtitle}</p>
-        <span class="arrow"> -></span>
+        <!-- <span class="arrow"> -></span> -->
 	</div>
 </div>

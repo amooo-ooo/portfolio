@@ -32,7 +32,7 @@
 	<div class="controls">
 		<div>
 			<p>Home</p>
-			<p>Roles[{infos[field].length}]</p>
+			<p>Who am I?[{infos[field].length}]</p>
 		</div>
 
 		<div>
