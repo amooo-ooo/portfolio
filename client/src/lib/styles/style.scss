@@ -4,17 +4,35 @@ div.board {
     height: 6dvh;
     border-radius: .4rem;
     border: 1px solid blue;
-    margin-left: auto;
     display: flex;
 
     font-family: "JetBrains Mono", monospace;
     font-size: 0.8rem;
     color: blue;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 0; right: 0;
+    margin: 2.2dvh;
+    transition: width 1000ms ease-in-out, height 1000ms ease-in-out;
+    z-index: 10;
 
     p {
         margin: auto;
         text-transform: uppercase;
     }
+}
+
+div.board:hover {
+    background-color: blue;
+    color: white;
+}
+
+div.game {
+    width: calc(100% - 4.4dvh);
+    height: calc(100% - 4.4dvh);
+    background-color: blue !important;
+    cursor: default;
 }
 
 section {
@@ -31,6 +49,8 @@ div.content {
     width: 36vw;
 
     p {
+        margin: 0;
         margin-top: auto;
+
     }
 }
