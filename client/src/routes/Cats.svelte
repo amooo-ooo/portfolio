@@ -10,8 +10,10 @@
 	import cat_8 from '$lib/images/cats/cat (8).png';
 	import cat_9 from '$lib/images/cats/cat (9).png';
 	import cat_10 from '$lib/images/cats/cat (10).png';
+    import cat_11 from '$lib/images/cats/cat (11).png';
+	import cat_14 from '$lib/images/cats/cat (14).png';
 
-	let cats = [cat_1, cat_2, cat_3, cat_4, cat_5, cat_6, cat_7, cat_8, cat_9, cat_10];
+	let cats = [cat_1, cat_2, cat_3, cat_4, cat_5, cat_6, cat_7, cat_8, cat_9, cat_10, cat_11, cat_14];
 	let images;
 	let globalIndex = 0;
 	let last = { x: 0, y: 0 };
@@ -20,7 +22,7 @@
 	const activate = (image, x, y, dx, dy) => {
 		// Generate a random rotation degree between 0 and 360
 		const rotation = Math.floor(Math.random() * 40) - 20;
-		const size = Math.floor(Math.random() * 10 + 18);
+		const size = Math.floor(Math.random() * 8 + 18);
 
 		// Set the initial position to the current cursor position
 		image.style.left = `${x}px`;
@@ -47,27 +49,30 @@
 	};
 
 	const handleOnMove = (e) => {
-		// Calculate the top limit in pixels
-		const topLimitPx = window.innerHeight * (limit / 100);
+	// Calculate the top limit in pixels
+	const topLimitPx = window.innerHeight * (limit / 100);
+	// Calculate the bottom limit in pixels
+	const bottomLimitPx = window.innerHeight * ((100 - 16) / 100); // 10vh from the bottom
 
-		// Check if the cursor is below the top limit
-		if (e.clientY > topLimitPx) {
-			if (distanceFromLast(e.clientX, e.clientY) > window.innerWidth / 12) {
-				const lead = images[globalIndex % images.length],
-					tail = images[(globalIndex - 6) % images.length];
+	// Check if the cursor is below the top limit and above the bottom limit
+	if (e.clientY > topLimitPx && e.clientY < bottomLimitPx) {
+		if (distanceFromLast(e.clientX, e.clientY) > window.innerWidth / 12) {
+			const lead = images[globalIndex % images.length],
+				tail = images[(globalIndex - 6) % images.length];
 
-				// Calculate dx and dy
-				const dx = e.clientX - last.x;
-				const dy = e.clientY - last.y;
+			// Calculate dx and dy
+			const dx = e.clientX - last.x;
+			const dy = e.clientY - last.y;
 
-				activate(lead, e.clientX, e.clientY, dx, dy);
+			activate(lead, e.clientX, e.clientY, dx, dy);
 
-				if (tail) tail.dataset.status = 'inactive';
+			if (tail) tail.dataset.status = 'inactive';
 
-				globalIndex++;
-			}
+			globalIndex++;
 		}
-	};
+	}
+};
+
 
 	onMount(() => {
 		images = document.getElementsByClassName('image');
@@ -76,9 +81,11 @@
 	});
 </script>
 
-{#each cats as src, i}
+<div class="cats">
+	{#each cats as src, i}
 	<img class="image" data-index={i} data-status="inactive" {src} />
 {/each}
+</div>
 
 <style>
 	div.cats {
@@ -88,10 +95,14 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+		overflow-x: hidden;
+		pointer-events: none;
 	}
 
 	.image {
-		width: 40vmin;
+		width: 40vmin;  
+        max-height: 26vmin;
+        object-fit: contain;
 		position: absolute;
 		transform: translate(-50%, -50%);
 		transition:

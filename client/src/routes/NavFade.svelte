@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let title = 'title';
 	export let subtitle = 'subtitle';
+	export let url = 'https://amorb.pages.dev/';
 	export let index = 0;
 	export const displace = 18;
 
@@ -11,7 +12,7 @@
 
 </script>
 
-<div class="role">
+<div class="role" on:click={() => window.open(url, '_blank')}>
 	<div class="title">
 		<p style="width: 100%;">{title}</p>
 		<div class="fade" style="grid-template-columns: {result};">
